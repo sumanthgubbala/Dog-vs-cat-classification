@@ -12,6 +12,7 @@ from tensorflow_hub.keras_layer import KerasLayer
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
@@ -57,4 +58,4 @@ def predict():
     return render_template('result.html',filename=filename, result=result)
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host="0.0.0.0", port=5000)
