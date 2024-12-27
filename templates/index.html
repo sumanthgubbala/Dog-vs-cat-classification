@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Vs Cat Image Classification</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Dog Vs Cat Image Classification</h1>
+    <div class="upload-container">
+      <form
+        id="'imgform"
+        action="/predict"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input
+          type="file"
+          id="file"
+          name="image"
+          accept="image/*"
+          required
+          placeholder="upload Image"
+        />
+        <br />
+        <button type="submit" id="submit_btn">Classify Image</button>
+      </form>
+      <div class="result" id="result"></div>
+    </div>
+    <script>
+      // Get the form element
+      document
+        .getElementById("imgform")
+        .addEventListener("submit", function (event) {
+          // Prevent default form submission
+          event.preventDefault();
+
+          var formData = new FormData(this);
+          var resultDiv = document.getElementById("result");
+
+          fetch("/predict", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              resultDiv.textContent = `Prediction : ${data.prediction}`;
+            })
+            .catch((error) => {
+              resultDiv.textContent = "Error " + error.message;
+            });
+        });
+    </script>
+  </body>
+</html>

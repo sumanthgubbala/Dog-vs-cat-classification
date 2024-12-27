@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <h2>Result: {{ result }}</h2>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" width="300"><br><br>
+    <a href="/">Upload Another Image</a>
+</body>
+</html>
