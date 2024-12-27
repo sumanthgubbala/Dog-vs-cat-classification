@@ -14,7 +14,7 @@ h5py==3.12.1
 idna==3.10
 itsdangerous==2.2.0
 Jinja2==3.1.5
-keras==3.7.0
+tensorflow==2.18.0
 libclang==18.1.1
 Markdown==3.7
 markdown-it-py==3.0.0
@@ -22,7 +22,7 @@ MarkupSafe==3.0.2
 mdurl==0.1.2
 ml-dtypes==0.4.1
 namex==0.0.8
-numpy==2.0.2
+numpy>=1.23.3  # Update numpy version to resolve conflict
 opencv-python==4.10.0.84
 opt_einsum==3.4.0
 optree==0.13.1
@@ -34,12 +34,9 @@ rich==13.9.4
 six==1.17.0
 tensorboard==2.18.0
 tensorboard-data-server==0.7.2
-tensorflow==2.18.0
 tensorflow-hub==0.16.1
 tensorflow-io-gcs-filesystem==0.31.0
-tensorflow_intel==2.18.0
 termcolor==2.5.0
-tf_keras==2.18.0
 typing_extensions==4.12.2
 urllib3==2.3.0
 Werkzeug==3.1.3
